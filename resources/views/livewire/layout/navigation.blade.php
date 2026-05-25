@@ -18,7 +18,7 @@ new class extends Component
             <div class="flex items-center">
                 <!-- Logo -->
                 <a href="{{ route('home') }}" class="font-orbitron font-bold text-2xl text-primary tracking-wider drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]" wire:navigate>
-                    USTAZZ.ID
+                    USTADZGAMERS.MY.ID
                 </a>
 
                 <!-- Navigation Links -->

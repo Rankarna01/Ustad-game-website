@@ -50,7 +50,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 relative z-10">
             <div class="mb-8 text-center" data-aos="fade-down">
                 <a href="{{ route('home') }}" wire:navigate class="font-orbitron font-bold text-4xl text-primary tracking-wider drop-shadow-[0_0_15px_rgba(34,197,94,0.8)]">
-                    USTAZZ.ID
+                    USTADZGAMERS.MY.ID
                 </a>
                 <p class="text-secondary-text mt-2 text-sm">Masuk ke panel untuk mengelola toko</p>
             </div>

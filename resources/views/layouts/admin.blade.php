@@ -45,11 +45,13 @@
         <!-- Scripts -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-background text-secondary-text min-h-screen flex overflow-hidden selection:bg-primary selection:text-white" x-data="{ sidebarOpen: true }">
+    <body class="font-sans antialiased bg-background text-secondary-text min-h-screen flex overflow-hidden selection:bg-primary selection:text-white" x-data="{ sidebarOpen: window.innerWidth >= 1024 }" @resize.window="if(window.innerWidth >= 1024) { sidebarOpen = true } else { sidebarOpen = false }">
 
+        <!-- Mobile Overlay -->
+        <div x-show="sidebarOpen" x-transition.opacity class="fixed inset-0 bg-black/80 z-40 lg:hidden backdrop-blur-sm" @click="sidebarOpen = false" style="display: none;"></div>
 
         <!-- Sidebar -->
-        <aside class="bg-surface w-64 border-r border-gray-800 flex-shrink-0 transition-all duration-300 z-40" :class="{ '-ml-64': !sidebarOpen }">
+        <aside class="bg-surface w-64 border-r border-gray-800 flex-shrink-0 transition-all duration-300 z-50 fixed lg:relative inset-y-0 left-0 h-screen" :class="{ '-translate-x-full lg:translate-x-0 lg:-ml-64': !sidebarOpen }">
             <div class="h-16 flex items-center justify-center border-b border-gray-800">
                 <a href="{{ route('admin.dashboard') ?? '#' }}" class="font-orbitron font-bold text-2xl text-primary tracking-wider drop-shadow-[0_0_10px_rgba(34,197,94,0.8)]">USTAZZ</a>
             </div>

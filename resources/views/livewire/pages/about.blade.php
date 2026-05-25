@@ -41,7 +41,7 @@ layout('layouts.app');
                 <h2 class="text-3xl font-orbitron font-bold text-white mb-6">Partner Terbaik Kebutuhan Gaming Anda</h2>
                 <div class="space-y-6 text-secondary-text leading-relaxed">
                     <p>
-                        <strong>Ustazz.id GameStore Marketplace</strong> adalah platform jual beli akun game premium terpercaya di Indonesia. Berdiri sejak tahun 2021, kami telah melayani lebih dari puluhan ribu gamers yang mencari akun idaman mereka.
+                        <strong>USTADZGAMERS.MY.ID GameStore Marketplace</strong> adalah platform jual beli akun game premium terpercaya di Indonesia. Berdiri sejak tahun 2021, kami telah melayani lebih dari puluhan ribu gamers yang mencari akun idaman mereka.
                     </p>
                     <p>
                         Kami memahami bahwa keamanan adalah prioritas utama dalam transaksi akun digital. Oleh karena itu, kami menerapkan sistem verifikasi ketat pada setiap akun yang dijual untuk memastikan 100% aman dan bebas dari masalah hack-back di kemudian hari.
