@@ -32,6 +32,9 @@ new class extends Component
                     <a href="{{ route('about') }}" wire:navigate class="{{ request()->routeIs('about') ? 'text-primary border-primary' : 'text-secondary-text border-transparent hover:text-white hover:border-gray-600' }} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors">
                         Tentang Kami
                     </a>
+                    <a href="{{ route('testimonials') }}" wire:navigate class="{{ request()->routeIs('testimonials') ? 'text-primary border-primary' : 'text-secondary-text border-transparent hover:text-white hover:border-gray-600' }} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors">
+                        Testimoni
+                    </a>
                     <a href="{{ route('contact') }}" wire:navigate class="{{ request()->routeIs('contact') ? 'text-primary border-primary' : 'text-secondary-text border-transparent hover:text-white hover:border-gray-600' }} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors">
                         Kontak
                     </a>
@@ -74,6 +77,7 @@ new class extends Component
             <a href="{{ route('home') }}" wire:navigate class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('home') ? 'border-primary text-primary bg-primary/5' : 'border-transparent text-secondary-text hover:text-white hover:bg-gray-800' }} text-base font-medium">Home</a>
             <a href="{{ route('catalog') }}" wire:navigate class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('catalog') ? 'border-primary text-primary bg-primary/5' : 'border-transparent text-secondary-text hover:text-white hover:bg-gray-800' }} text-base font-medium">Katalog</a>
             <a href="{{ route('about') }}" wire:navigate class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('about') ? 'border-primary text-primary bg-primary/5' : 'border-transparent text-secondary-text hover:text-white hover:bg-gray-800' }} text-base font-medium">Tentang Kami</a>
+            <a href="{{ route('testimonials') }}" wire:navigate class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('testimonials') ? 'border-primary text-primary bg-primary/5' : 'border-transparent text-secondary-text hover:text-white hover:bg-gray-800' }} text-base font-medium">Testimoni</a>
             <a href="{{ route('contact') }}" wire:navigate class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('contact') ? 'border-primary text-primary bg-primary/5' : 'border-transparent text-secondary-text hover:text-white hover:bg-gray-800' }} text-base font-medium">Kontak</a>
         </div>
 

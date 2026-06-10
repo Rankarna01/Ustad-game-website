@@ -220,38 +220,101 @@ new #[\Livewire\Attributes\Layout('layouts.app')] class extends Component
         </div>
     </section>
 
-    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <!-- ===== TESTIMONIALS SECTION (Marquee) ===== -->
     @if($testimonials->count() > 0)
-    <section class="py-20">
+    <section class="py-20 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-white mb-4">Kata Mereka</h2>
                 <div class="w-20 h-1 bg-primary mx-auto rounded-full shadow-neon-green"></div>
+                <p class="text-secondary-text mt-4">Bukti transaksi sukses dari pelanggan setia kami.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                @foreach($testimonials as $i => $t)
-                <div class="bg-card border border-gray-800 rounded-2xl p-6 hover:border-primary/30 transition-all group" data-aos="fade-up" data-aos-delay="{{ $i * 80 }}">
-                    <div class="flex items-center gap-1 mb-4">
-                        @for($s=1; $s<=5; $s++)
-                            @if($s <= $t->rating)
-                                <i class='bx bxs-star text-yellow-400'></i>
-                            @else
-                                <i class='bx bx-star text-gray-600'></i>
-                            @endif
-                        @endfor
-                    </div>
-                    <p class="text-secondary-text text-sm leading-relaxed mb-5 italic">"{{ $t->message }}"</p>
-                    <div class="flex items-center gap-3 pt-4 border-t border-gray-800">
-                        <div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center font-bold text-primary text-sm">
-                            {{ strtoupper(substr($t->name, 0, 2)) }}
+            
+            <style>
+                .marquee-container {
+                    overflow: hidden;
+                    width: 100%;
+                    position: relative;
+                }
+                .marquee-content {
+                    display: flex;
+                    gap: 1.5rem;
+                    width: max-content;
+                    animation: marquee 30s linear infinite;
+                }
+                .marquee-content:hover {
+                    animation-play-state: paused;
+                }
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+            </style>
+
+            <div class="marquee-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="marquee-content">
+                    <!-- Original items -->
+                    @foreach($testimonials as $t)
+                    <div class="w-[280px] md:w-[320px] flex-shrink-0 bg-card border border-gray-800 rounded-2xl p-4 hover:border-primary/50 transition-all cursor-pointer group shadow-lg">
+                        @if($t->image)
+                            <div class="w-full h-[400px] overflow-hidden rounded-xl mb-4 bg-background">
+                                <img src="{{ asset('storage/' . $t->image) }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Testimoni">
+                            </div>
+                        @else
+                            <div class="w-full h-[400px] rounded-xl mb-4 bg-background flex items-center justify-center border border-gray-800">
+                                <i class='bx bx-image-alt text-4xl text-gray-700'></i>
+                            </div>
+                        @endif
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center font-bold text-primary text-sm shrink-0">
+                                {{ strtoupper(substr($t->name, 0, 2)) }}
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="font-semibold text-white text-sm truncate">{{ $t->name }}</p>
+                                @if($t->message)
+                                    <p class="text-xs text-secondary-text truncate italic">"{{ $t->message }}"</p>
+                                @else
+                                    <div class="flex text-yellow-400 text-xs"><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></div>
+                                @endif
+                            </div>
                         </div>
-                        <div>
-                            <p class="font-semibold text-white text-sm">{{ $t->name }}</p>
-                            <p class="text-xs text-secondary-text">{{ $t->created_at->diffForHumans() }}</p>
+                    </div>
+                    @endforeach
+                    
+                    <!-- Duplicated items for seamless loop -->
+                    @foreach($testimonials as $t)
+                    <div class="w-[280px] md:w-[320px] flex-shrink-0 bg-card border border-gray-800 rounded-2xl p-4 hover:border-primary/50 transition-all cursor-pointer group shadow-lg">
+                        @if($t->image)
+                            <div class="w-full h-[400px] overflow-hidden rounded-xl mb-4 bg-background">
+                                <img src="{{ asset('storage/' . $t->image) }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Testimoni">
+                            </div>
+                        @else
+                            <div class="w-full h-[400px] rounded-xl mb-4 bg-background flex items-center justify-center border border-gray-800">
+                                <i class='bx bx-image-alt text-4xl text-gray-700'></i>
+                            </div>
+                        @endif
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center font-bold text-primary text-sm shrink-0">
+                                {{ strtoupper(substr($t->name, 0, 2)) }}
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="font-semibold text-white text-sm truncate">{{ $t->name }}</p>
+                                @if($t->message)
+                                    <p class="text-xs text-secondary-text truncate italic">"{{ $t->message }}"</p>
+                                @else
+                                    <div class="flex text-yellow-400 text-xs"><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></div>
+                                @endif
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
+            </div>
+
+            <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="200">
+                <a wire:navigate href="{{ route('testimonials') }}" class="inline-flex items-center gap-2 text-white font-medium bg-surface border border-gray-700 hover:border-primary hover:bg-primary/10 px-6 py-3 rounded-full transition-all text-sm">
+                    Lihat Semua Testimoni <i class='bx bx-right-arrow-alt'></i>
+                </a>
             </div>
         </div>
     </section>

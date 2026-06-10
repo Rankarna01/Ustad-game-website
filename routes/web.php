@@ -8,6 +8,7 @@ Volt::route('/katalog', 'pages.catalog')->name('catalog');
 Volt::route('/akun/{id}', 'pages.detail')->name('account.detail');
 Volt::route('/tentang-kami', 'pages.about')->name('about');
 Volt::route('/kontak', 'pages.contact')->name('contact');
+Volt::route('/testimoni', 'pages.testimonials')->name('testimonials');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
