@@ -45,7 +45,7 @@
         <!-- Scripts -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-background text-secondary-text min-h-screen flex overflow-hidden selection:bg-primary selection:text-white" x-data="{ sidebarOpen: window.innerWidth >= 1024 }" @resize.window="if(window.innerWidth >= 1024) { sidebarOpen = true } else { sidebarOpen = false }">
+    <body class="font-sans antialiased bg-background text-secondary-text h-screen flex overflow-hidden selection:bg-primary selection:text-white" x-data="{ sidebarOpen: window.innerWidth >= 1024 }" @resize.window="if(window.innerWidth >= 1024) { sidebarOpen = true } else { sidebarOpen = false }">
 
         <!-- Mobile Overlay -->
         <div x-show="sidebarOpen" x-transition.opacity class="fixed inset-0 bg-black/80 z-40 lg:hidden backdrop-blur-sm" @click="sidebarOpen = false" style="display: none;"></div>
